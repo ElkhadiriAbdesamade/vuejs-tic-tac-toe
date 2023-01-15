@@ -128,6 +128,7 @@ data(){
         player_1_name:'Player 1',
         player_2_name:'Player 2',
         err:false,
+        turn:""
         
     }
 },
@@ -141,6 +142,7 @@ methods:{
         this.nbr_turn++;
        if (!this.turn) {           
             //X
+            this.ture="x";
             if (x==='r_1_1') {
                 this.r_1_1='X'
                 this.turn=!this.turn;
@@ -189,6 +191,7 @@ methods:{
        }
        else{
            //O
+           this.ture="o";
            if (x==='r_1_1') {
                 this.r_1_1='O'
                 this.turn=!this.turn;
@@ -241,7 +244,13 @@ methods:{
     win_info(pl_name,lign){
             this.win_player=pl_name;
             this.result_card=!this.result_card;
-            this.player_1_score++;
+            if(this.turn==="x")
+            {
+                this.player_1_score++;
+            }else{
+                this.player_2_score++;
+            }
+            
             document.getElementById(lign).style.visibility="visible";
            
             this.nbr_turn=0;
