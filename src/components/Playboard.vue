@@ -128,7 +128,7 @@ data(){
         player_1_name:'Player 1',
         player_2_name:'Player 2',
         err:false,
-        turn:""
+      
         
     }
 },
@@ -241,10 +241,10 @@ methods:{
        this.result();
       
     },
-    win_info(pl_name,lign){
+    win_info(pl_name,lign,turn){
             this.win_player=pl_name;
             this.result_card=!this.result_card;
-            if(this.turn==="x")
+            if(turn==="x")
             {
                 this.player_1_score++;
             }else{
@@ -261,57 +261,57 @@ methods:{
         //Player X
          //Row
         if (this.r_1_1 === 'X' && this.r_1_2 === 'X' && this.r_1_3 === 'X') {
-           this.win_info(this.player_1_name,'l_1_v');
+           this.win_info(this.player_1_name,'l_1_v',"x");
         }
         if (this.r_2_1 === 'X' && this.r_2_2 === 'X' && this.r_2_3 === 'X') {
-           this.win_info(this.player_1_name,'l_2_v');
+           this.win_info(this.player_1_name,'l_2_v',"x");
         }
         if (this.r_3_1 === 'X' && this.r_3_2 === 'X' && this.r_3_3 === 'X') {
-            this.win_info(this.player_1_name,'l_3_v');
+            this.win_info(this.player_1_name,'l_3_v',"x");
         }
          //Colum
         if (this.r_1_1 === 'X' && this.r_2_1 === 'X' && this.r_3_1 === 'X') {
-           this.win_info(this.player_1_name,'l_1_h');
+           this.win_info(this.player_1_name,'l_1_h',"x");
         }
         if (this.r_1_2 === 'X' && this.r_2_2 === 'X' && this.r_3_2 === 'X') {
-           this.win_info(this.player_1_name,'l_2_h');
+           this.win_info(this.player_1_name,'l_2_h',"x");
         }
         if (this.r_1_3 === 'X' && this.r_2_3 === 'X' && this.r_3_3 === 'X') {
-           this.win_info(this.player_1_name,'l_3_h');
+           this.win_info(this.player_1_name,'l_3_h',"x");
         }
          //Cros
         if (this.r_1_1 === 'X' && this.r_2_2 === 'X' && this.r_3_3 === 'X') {
-           this.win_info(this.player_1_name,'l_1_x');
+           this.win_info(this.player_1_name,'l_1_x',"x");
         }
         if (this.r_1_3 === 'X' && this.r_2_2 === 'X' && this.r_3_1 === 'X') {
-           this.win_info(this.player_1_name,'l_2_x');
+           this.win_info(this.player_1_name,'l_2_x',"x");
         }
         //Player O
         if (this.r_1_1 === 'O' && this.r_1_2 === 'O' && this.r_1_3 === 'O') {
-            this.win_info(this.player_2_name,'l_1_v');
+            this.win_info(this.player_2_name,'l_1_v',"o");
         }
         if (this.r_2_1 === 'O' && this.r_2_2 === 'O' && this.r_2_3 === 'O') {
-            this.win_info(this.player_2_name,'l_2_v');
+            this.win_info(this.player_2_name,'l_2_v',"o");
         }
         if (this.r_3_1 === 'O' && this.r_3_2 === 'O' && this.r_3_3 === 'O') {
-            this.win_info(this.player_2_name,'l_3_v');
+            this.win_info(this.player_2_name,'l_3_v',"o");
         }
          //Colum
         if (this.r_1_1 === 'O' && this.r_2_1 === 'O' && this.r_3_1 === 'O') {
-           this.win_info(this.player_2_name,'l_1_h');
+           this.win_info(this.player_2_name,'l_1_h',"o");
         }
         if (this.r_1_2 === 'O' && this.r_2_2 === 'O' && this.r_3_2 === 'O') {
-           this.win_info(this.player_2_name,'l_2_h');
+           this.win_info(this.player_2_name,'l_2_h',"o");
         }
         if (this.r_1_3 === 'O' && this.r_2_3 === 'O' && this.r_3_3 === 'O') {
-           this.win_info(this.player_2_name,'l_3_h');
+           this.win_info(this.player_2_name,'l_3_h',"o");
         }
          //Cros
         if (this.r_1_1 === 'O' && this.r_2_2 === 'O' && this.r_3_3 === 'O') {
-           this.win_info(this.player_2_name,'l_1_x');
+           this.win_info(this.player_2_name,'l_1_x',"o");
         }
         if (this.r_1_3 === 'O' && this.r_2_2 === 'O' && this.r_3_1 === 'O') {
-           this.win_info(this.player_2_name,'l_2_x');
+           this.win_info(this.player_2_name,'l_2_x',"o");
         }
         
         //Draw
