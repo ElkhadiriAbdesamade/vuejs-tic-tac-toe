@@ -1,7 +1,6 @@
 <template>
 
-    <span v-if="sound_statu" @click="changeSound()" class="material-icons icon_sound">volume_up</span>
-    <span v-else @click="changeSound()" class="material-icons icon_sound">volume_off</span>
+
 
     <!-- error -->
     <div v-if="err" class="backdrop">
@@ -101,8 +100,7 @@
       </div>
   </div>
   
-  <!-- sound controll -->
-  <audio id="sound" src="" preload="auto" controls="none" style="display: none;"></audio>
+
   
 </template>
 
@@ -130,30 +128,16 @@ data(){
         player_1_name:'Player 1',
         player_2_name:'Player 2',
         err:false,
-        sound_statu:true,
+        
     }
 },
 methods:{
-    changeSound(){
-        document.getElementById("sound").muted = this.sound_statu;
-        this.sound_statu=!this.sound_statu;
-    },
-    sound(src) {
-            this.sound = document.getElementById("sound");
-            this.sound.src = src;            
-            this.play = function(){
-                this.sound.play();
-            }
-            this.stop = function(){
-                this.sound.pause();
-            }
-        },
+    
     boxClick(x){
         if (this.player_1_name===this.player_2_name) {
             this.err=!this.err;
         }
-        var clickSound = new this.sound(require('@/assets/MP3/pop.mp3'));
-        clickSound.play();
+        
         this.nbr_turn++;
        if (!this.turn) {           
             //X
@@ -259,8 +243,7 @@ methods:{
             this.result_card=!this.result_card;
             this.player_1_score++;
             document.getElementById(lign).style.visibility="visible";
-            var victorySound = new this.sound(require('@/assets/MP3/victory.mp3'));
-            victorySound.play();
+           
             this.nbr_turn=0;
             return;
     }
@@ -325,8 +308,7 @@ methods:{
         //Draw
         if (this.nbr_turn===9) {
             this.draw_statu=!this.draw_statu;
-            var drawSound = new this.sound(require('@/assets/MP3/draw.mp3'));
-            drawSound.play();
+            
             return;
         }
         
@@ -658,20 +640,7 @@ methods:{
     }
 }
 
-.icon_sound{
-    position: absolute;
-    right: 50px;
-    top: 50px;
-    border: 2px white solid;
-    background: rgb(2, 70, 70);
-    border-radius: 50px;
-    padding: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-}
-.icon_sound:hover{
-    opacity: 0.7;
-}
+
 .title h1{
     font-size: 5rem;
 }
