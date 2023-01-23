@@ -100,7 +100,14 @@
       </div>
   </div>
   
-
+ <footer class="footer">
+        <div class="container">
+            <p class="m-0 text-center text-white">Created By
+                <a href="https://abdo-dev.vercel.app" rel="noreferrer" target="_blank">ABDO_DEV</a>
+                &copy; TIC TAC TOE {{ year }}
+            </p>
+        </div>
+    </footer>
   
 </template>
 
@@ -128,10 +135,13 @@ data(){
         player_1_name:'Player 1',
         player_2_name:'Player 2',
         err:false,
-      
+        year: ''
         
     }
 },
+ created() {
+        this.year = new Date().getFullYear()
+    },
 methods:{
     
     boxClick(x){
@@ -656,5 +666,15 @@ methods:{
 .title h1 .first_p{
     color: turquoise;
     display: contents;
+}
+.footer {
+    background: #8FD4D4;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: black;
+    font-size: 1.5rem;
 }
 </style>
